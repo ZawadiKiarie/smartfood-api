@@ -9,7 +9,7 @@ const uploadImage = async (filePath) => {
   try {
     const response = await axios.post(
       // "http://host.docker.internal:5000/segment",
-      "https://smartfood-segmentation-api.onrender.com/segment",
+      "https://segmentation-api-2dd7.onrender.com/segment",
       formData,
       {
         headers: {
