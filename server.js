@@ -65,6 +65,6 @@ app.post("/profile/:id", auth.requireAuth, (req, res) => {
   profile.handleProfileUpdate(req, res, db);
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
   console.log("app is running on port 3000");
 });

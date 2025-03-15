@@ -7,7 +7,7 @@ services:
     working_dir: /usr/src/smartfood-api
     environment:
       POSTGRES_URI: postgres://postgres:zawadi2005@postgres:5432/smartfood-docker
-      REDIS_URI: redis://redis:6379
+      REDIS_URI: redis://red-cvapfqan91rc73992g00:6379
     depends_on:
       - postgres
       - redis
