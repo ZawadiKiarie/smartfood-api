@@ -1,29 +1,32 @@
-const FormData = require('form-data');
-const fs = require('fs');
-const axios = require('axios');
+const FormData = require("form-data");
+const fs = require("fs");
+const axios = require("axios");
 
-
-const uploadImage = async(filePath) => {
+const uploadImage = async (filePath) => {
   const formData = new FormData();
-  formData.append('image', fs.createReadStream(filePath));
-
+  formData.append("image", fs.createReadStream(filePath));
+  console.log(formData);
   try {
-    const response = await axios.post('http://localhost:5000/segment', formData, {
-      headers: {
-        ...formData.getHeaders(),
-      },
-    });
+    const response = await axios.post(
+      "http://host.docker.internal:5000/segment",
+      formData,
+      {
+        headers: {
+          ...formData.getHeaders(),
+        },
+      }
+    );
+    console.log(response);
     return response.data;
-  }catch(error){
-    console.error('Error uploading image:', error.response ? error.response.data : error.message);
+  } catch (error) {
+    console.error(
+      "Error uploading image:",
+      error.response ? error.response.data : error.message
+    );
     throw error;
   }
-      
-}
+};
 
 module.exports = {
   uploadImage,
-}
-
-
-
+};
